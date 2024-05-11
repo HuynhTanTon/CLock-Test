@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            margin: 0; /* Remove default margin */
+        }
+
+        #clock {
+            font-size: 5rem;
+            font-weight: 1000;
+            padding: 30px 40px;
+            border-radius: 15px;
+            border: 5px solid rgb(255, 255, 255);
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hour = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            hour = hour < 10 ? "0" + hour : hour;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            var timeString = hour + ":" + minutes + ":" + seconds;
+            document.getElementById("clock").innerHTML = timeString;
+        }
+
+        setInterval(updateClock, 1000); // Update the clock every second
+        updateClock(); // Initial call to display the clock immediately
+    </script>
+</body>
+</html>
